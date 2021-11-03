@@ -1,0 +1,14 @@
+= form_with model: @recipe do |form|
+  = form.label :name
+  = form.text_field :name
+  br
+  = form.label :ingrediants
+  = form.text_field :ingrediants
+  br
+  = form.label :instructions
+  = form.text_field :instructions
+  br
+  = form.label :rating
+  = form.number_field :rating
+  br
+  = form.submit

@@ -1,0 +1,13 @@
+= @tag.name
+br
+|Recipes:
+br
+- @tag.recipes.each do |recipe|
+  = link_to recipe.name, recipe
+  br
+br
+= form_with  url: "/add_recipe", method: :post do |form|
+  = form.hidden_field(:tag_id, :value => @tag.id)
+  = form.label :add_recipe
+  = form.select :recipe_id, @array
+  = form.submit

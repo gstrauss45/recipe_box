@@ -1,0 +1,30 @@
+= @recipe.name
+| :
+= link_to 'Edit', edit_recipe_path
+br
+| Ingrediants:
+br
+= @recipe.ingrediants
+br
+| Instructions:
+br
+= @recipe.instructions
+br
+| rating:
+= @recipe.rating
+br
+|Tags:
+br
+- @recipe.tags.each do |tag|
+  = tag.name
+  = link_to 'remove', remove_recipe_path(id: @recipe.id, p_id: tag.id), method: 'post'
+  br
+br
+
+= form_with  url: "/add_tag", method: :post do |form|
+  = form.hidden_field(:recipe_id, :value => @recipe.id)
+  = form.label :add_tag
+  = form.select :tag_id, @array
+  = form.submit
+
+
